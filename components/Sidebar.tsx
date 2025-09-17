@@ -17,6 +17,7 @@ export default function Sidebar() {
     { label: 'Dashboard', href: '/', icon: FaHome },
     { label: 'Posts', href: '/posts', icon: FaFileAlt },
     { label: 'Users', href: '/users', icon: FaUsers },
+    { label: 'Profile', href: '/profile', icon: FaUsers }, 
   ]
 
   return (
