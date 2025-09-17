@@ -1,25 +1,20 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import Sidebar from '../components/Sidebar'
-
+import ClientLayout from './ClientLayout' // client wrapper
 
 const inter = Inter({ subsets: ['latin'] })
 
-
 export const metadata = {
-title: 'Zettabyte Test',
+  title: 'Zettabyte Test',
 }
 
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-return (
-<html lang="en">
-<body className={inter.className + ' p-6'}>
-<div className="flex gap-6">
-<Sidebar />
-<main className="flex-1">{children}</main>
-</div>
-</body>
-</html>
-)
+  return (
+    <html lang="en">
+      <body className={inter.className + ' p-6'}>
+        {/* Wrap children in the client layout */}
+        <ClientLayout>{children}</ClientLayout>
+      </body>
+    </html>
+  )
 }

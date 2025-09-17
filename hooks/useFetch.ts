@@ -11,7 +11,7 @@ export default function useFetch<T = any>(
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    if (!url) return // ✅ ensures url is not null
+    if (!url) return
     let cancelled = false
 
     async function fetchData() {
