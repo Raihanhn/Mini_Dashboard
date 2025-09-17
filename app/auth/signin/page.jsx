@@ -1,16 +1,20 @@
 'use client'
-import { signIn } from "next-auth/react";
+import { useAuthRedirect } from '../../../hooks/useAuthRedirect'
+import { signIn } from 'next-auth/react'
 
-export default function SignIn() {
+export default function SignInPage() {
+  const { status } = useAuthRedirect()
+
+  if (status === 'loading') return <div>Loading...</div>
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-2xl font-bold mb-4">Sign in to Zettabyte</h1>
+    <div className="min-h-screen flex items-center justify-center">
       <button
-        onClick={() => signIn("google")}
-        className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+        onClick={() => signIn('google', { callbackUrl: '/' })}
+        className="px-4 py-2 bg-blue-500 text-white rounded"
       >
         Sign in with Google
       </button>
     </div>
-  );
+  )
 }
